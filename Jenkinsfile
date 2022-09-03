@@ -107,7 +107,9 @@ pipeline{
         stage("Funciones"){
             steps{
                 script{
-                    callAPI("GET", "https://github.com/MartiMarch/formacion-jenkins-groovy", "")
+                    def out = callAPI("GET", "https://github.com/MartiMarch/formacion-jenkins-groovy", "")
+                    echo "${ out }"
+                    //out = callAPI("GET", "", "")
                 }
             }
         }
