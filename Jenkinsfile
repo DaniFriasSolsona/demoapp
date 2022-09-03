@@ -68,5 +68,17 @@ pipeline{
                 )
             }
         }
+        stage("SH"){
+            steps{
+                script{
+                    //Numero de commits de mi repositorio sobre la ranch master
+                    sh "git rev-list --count master"
+
+                    //Descargando e imprimiendo el Jenknsfile
+                    sh "wget -nc https://raw.githubusercontent.com/MartiMarch/formacion-jenkins-groovy/master/Jenkinsfile"
+                    sh "cat Jenkinsfile"
+                }
+            }
+        }
     }
 }
