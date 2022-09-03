@@ -144,8 +144,7 @@ String callAPI(String call, String parameters, String json){
     return out
 }
 
-class Repositorio()
-{
+class Repositorio{
     private String id = ""
     private String name = ""
     private String url = ""
@@ -153,7 +152,7 @@ class Repositorio()
     private String description = ""
     private String forks = ""
 
-    Repositorio(String id, String name, String url, String visibility, String description, String forks){
+    public Repositorio(String id, String name, String url, String visibility, String description, String forks){
         this.id = id;
         this.name = name;
         this.url = url;
