@@ -81,5 +81,13 @@ pipeline{
                 }
             }
         }
+        stage("WORKSPACE"){
+            steps{
+                script{
+                    echo "pwd"
+                    echo "${ WORKSPACE }"
+                }
+            }
+        }
     }
 }
