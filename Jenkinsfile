@@ -86,6 +86,7 @@ pipeline{
                 script{
                     sh "pwd"
                     echo "${ WORKSPACE }"
+                    sh "ls -ll ${ WORKSPACE }"
                 }
             }
         }
