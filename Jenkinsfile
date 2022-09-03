@@ -93,15 +93,14 @@ pipeline{
         stage("Parametrización"){
             steps{
                 script{
-                    echo "${ MI_CADENA }"
-                    def MI_CADENA2 = 
+                    def MI_CADENA = 
                         input message: 'Introduce una cadena de texto:', 
                         parameters: [string(
                             defaultValue: 'change me',
-                            name: 'MI_CADENA_2',
+                            name: 'MI_CADENA',
                             trim: false
                         )]
-                    echo "${ MI_CADENA_2 }"
+                    echo "${ MI_CADENA }"
                 }
             }
         }
