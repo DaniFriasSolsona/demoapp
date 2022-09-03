@@ -1,6 +1,9 @@
 pipeline{
     agent any
     stages{
+        environment {
+            GLOBAL_1 = 3.141592653
+        }
         stage("Groovy"){
             steps{
                 script{
@@ -36,6 +39,17 @@ pipeline{
                         echo "${ j_randomStrings.get(i) }"
                     }
 
+                }
+            }
+        }
+        stage("Variables globales"){
+            environment {
+                GLOBAL2 = 12450
+            }
+            steps{
+                script{
+                    echo "Cualquier stage puede imprimir esta variable ${ GLOBAL_1 }"
+                    echo "Solo el stage \"Variables globales\" puede imprimir la variable ${ GLOBAL2 } "
                 }
             }
         }
