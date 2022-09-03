@@ -114,6 +114,24 @@ pipeline{
                 }
             }
         }
+        stages("Clases"){
+            steps{
+                script{
+                    //Llamada a la API
+                    def jsonString = callAPI("GET", "https://api.github.com/repos/MartiMarch/formacion-jenkins-groovy", "")
+                    //Transforamcion del json a un mapa
+                    def jsonObj = readJSON text: jsonString
+
+                    def id = jsonObj.id
+                    def name = jsonObj.name
+                    def url = jsonObj.html_url
+                    def visibility = jsonObj.visibility
+                    def description = String.valueOf(jsonObj.description)
+                    def forks = jsonObj.forks
+                    Repositorio repo = new Repositorio(jsonObj.id, jsonObj.name, jsonObj.html_url, )
+                }
+            }
+        }
     }
 }
 
@@ -124,4 +142,40 @@ String callAPI(String call, String parameters, String json){
     }
     def out = sh (returnStdout: true, script: "${ command }")
     return out
+}
+
+class Repositorio()
+{
+    private String id = ""
+    private String name = ""
+    private String url = ""
+    private String visibility = ""
+    private String description = ""
+    private String forks = ""
+
+    Repositorio(String id, String name, String url, String visibility, String description, String forks){
+        this.id = id;
+        this.name = name;
+        this.url = url;
+        this.visibility = visibility;
+        if(description.equals("public")){
+            this.description = "publico";
+        }else{
+            this.description = "privado";
+        }
+        this.forks = forks;
+    }
+
+    public String print(){
+        String out = "";
+        out += "Datos del repositorio\n"
+        out += "Nombre: " + this.name + "\n"
+        out += "Id: " + this.id + "\n"
+        out += "Description: " + this.description + "\n"
+        out += "URL: " + this.url + "\n")
+        out += "Visibilidad:" + this.visibility + "\n"
+        out+= "Cantidad de forks: " + this.forks + "\n"
+        return out;
+    }
+
 }
