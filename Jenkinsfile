@@ -55,7 +55,7 @@ pipeline{
         }
         stage("Paralelización"){
             steps{
-                parrallel(
+                parallel(
                     a: {
                         echo "Tarea a"
                     },
