@@ -116,7 +116,7 @@ pipeline{
 
 String callAPI(String call, String parameters, String json){
     def command = "curl -X " + call + " " + parameters
-    if(json.lenght > 0){
+    if(json.lengh() > 0){
         command += "-H \'Content-Type: application/json\' -d ${ json }"
     }
     def out = sh (returnStdout: true, script: "${ command }")
