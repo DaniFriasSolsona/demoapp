@@ -94,6 +94,16 @@ pipeline{
             steps{
                 script{
                     echo "${ MI_CADENA }"
+                    properties([
+                        parameters([
+                            string(
+                                defaultValue: 'change me',
+                                name: 'MI_CADENA_2',
+                                trim: false
+                            )
+                        ])
+                    ])
+                    echo "${ MI_CADENA_2 }"
                 }
             }
         }
