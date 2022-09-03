@@ -104,5 +104,21 @@ pipeline{
                 }
             }
         }
+        stage("Funciones"){
+            steps{
+                script{
+                    callAPI("GET", "https://github.com/MartiMarch/formacion-jenkins-groovy", "")
+                }
+            }
+        }
     }
+}
+
+String callAPI(String call, String parameters, String json){
+    def command = "curl -X " + call + " " + parameters
+    if(json.length > 0){
+        command += "-H \'Content-Type: application/json\' -d ${ json }"
+    }
+    def out = sh (returnStdout: true, script: "${ command }")
+    return out
 }
