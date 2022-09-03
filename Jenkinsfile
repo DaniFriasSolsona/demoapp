@@ -109,7 +109,8 @@ pipeline{
                 script{
                     def out = callAPI("GET", "https://api.github.com/repos/MartiMarch/formacion-jenkins-groovy", "")
                     echo "${ out }"
-                    //out = callAPI("GET", "", "")
+                    out = callAPI("GET", "https://apidatos.ree.es/es/datos/demanda/evolucion?start_date=2022-09-01&end_date=2022-09-02&time_trunc=day", "")
+                    echo "${ out }"
                 }
             }
         }
