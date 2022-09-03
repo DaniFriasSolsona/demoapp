@@ -21,6 +21,7 @@ pipeline{
                     g_randomStrings.add("puerta")
                     g_randomStrings.add("teclado")
                     g_randomStrings.add("letra")
+                    echo "Loop sobre el \"array\" usando Groovy:"
                     g_randomStrings.each { echo "${ it }" }
 
                     //Java
@@ -29,6 +30,7 @@ pipeline{
                     j_randomStrings.add("puerta")
                     j_randomStrings.add("teclado")
                     j_randomStrings.add("letra")
+                    echo "Loop sobre el array usando Java:"
                     for(int i = 0; i < j_randomStrings.size(); ++i)
                     {
                         echo "${ j_randomStrings.get(i) }"
