@@ -84,7 +84,7 @@ pipeline{
         stage("WORKSPACE"){
             steps{
                 script{
-                    echo "pwd"
+                    sh "pwd"
                     echo "${ WORKSPACE }"
                 }
             }
