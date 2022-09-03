@@ -131,7 +131,7 @@ pipeline{
                     def visibility = json.visibility
                     def description = String.valueOf(json.description)
                     def forks = json.forks
-                    Repositorio repo = new Repositorio(json.id, json.name, json.html_url, )
+                    Repositorio repo = new Repositorio(id, name, html_url, visibility, description, forks)
                     repo.print()
                 }
             }
