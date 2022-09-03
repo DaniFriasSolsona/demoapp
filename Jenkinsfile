@@ -76,7 +76,8 @@ pipeline{
 
                     //Descargando e imprimiendo el Jenknsfile
                     sh "wget -nc https://raw.githubusercontent.com/MartiMarch/formacion-jenkins-groovy/master/Jenkinsfile"
-                    sh "cat Jenkinsfile"
+                    sef output = sh (returnStdout: true, script: "cat Jenkinsfile")
+                    echo "${ output }"
                 }
             }
         }
