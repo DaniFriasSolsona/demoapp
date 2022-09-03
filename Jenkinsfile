@@ -94,15 +94,13 @@ pipeline{
             steps{
                 script{
                     echo "${ MI_CADENA }"
-                    properties([
-                        parameters([
-                            string(
-                                defaultValue: 'change me',
-                                name: 'MI_CADENA_2',
-                                trim: false
-                            )
-                        ])
-                    ])
+                    def MI_CADENA2 = 
+                        input message: 'Introduce una cadena de texto:', 
+                        parameters: [string(
+                            defaultValue: 'change me',
+                            name: 'MI_CADENA_2',
+                            trim: false
+                        )]
                     echo "${ MI_CADENA_2 }"
                 }
             }
