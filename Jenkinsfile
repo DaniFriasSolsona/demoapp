@@ -107,7 +107,7 @@ pipeline{
         stage("Funciones"){
             steps{
                 script{
-                    def out = callAPI("GET", "https://github.com/MartiMarch/formacion-jenkins-groovy", "")
+                    def out = callAPI("GET", "https://api.github.com/repos/MartiMarch/formacion-jenkins-groovy", "")
                     echo "${ out }"
                     //out = callAPI("GET", "", "")
                 }
@@ -117,7 +117,7 @@ pipeline{
 }
 
 String callAPI(String call, String parameters, String json){
-    def command = "curl -X " + call + " " + parameters
+    def command = "curl -X \"" + call + "\" " + parameters
     if(json.length() > 0){
         command += "-H \'Content-Type: application/json\' -d ${ json }"
     }
