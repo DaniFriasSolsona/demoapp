@@ -1,9 +1,9 @@
 pipeline{
     agent any
+    environment {
+        GLOBAL_1 = 3.141592653
+    }
     stages{
-        environment {
-            GLOBAL_1 = 3.141592653
-        }
         stage("Groovy"){
             steps{
                 script{
