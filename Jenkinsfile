@@ -114,7 +114,7 @@ pipeline{
                 }
             }
         }
-        stages("Clases"){
+        stage("Clases"){
             steps{
                 script{
                     //Llamada a la API
