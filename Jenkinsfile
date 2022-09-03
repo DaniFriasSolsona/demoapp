@@ -121,6 +121,7 @@ pipeline{
                 script{
                     //Llamada a la API
                     def jsonString = callAPI("GET", "https://api.github.com/repos/MartiMarch/formacion-jenkins-groovy", "")
+                    
                     //Transforamcion del json a un mapa
                     def jsonObj = new JsonSlurper()
                     def json = jsonObj.parseText(jsonString)
