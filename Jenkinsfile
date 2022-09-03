@@ -53,5 +53,20 @@ pipeline{
                 }
             }
         }
+        stage("Paralelización"){
+            steps{
+                parrallel(
+                    a: {
+                        echo "Tarea a"
+                    },
+                    b: {
+                        echo "Tarea b"
+                    },
+                    c: {
+                        echo "Tarea c"
+                    }
+                )
+            }
+        }
     }
 }
