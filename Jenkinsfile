@@ -177,7 +177,7 @@ class Repositorio{
         out += "Description: " + this.description + "\n"
         out += "URL: " + this.url + "\n"
         out += "Visibilidad:" + this.visibility + "\n"
-        out+= "Cantidad de forks: " + this.forks + "\n"
+        out+= "Cantidad de forks: " + this.forks
         return out;
     }
 }
