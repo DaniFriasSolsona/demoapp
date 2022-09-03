@@ -29,7 +29,7 @@ pipeline{
                     j_randomStrings.add("puerta")
                     j_randomStrings.add("teclado")
                     j_randomStrings.add("letra")
-                    for(int i = 0; i < j_randomStrings.lenght(); ++i)
+                    for(int i = 0; i < j_randomStrings.size(); ++i)
                     {
                         echo "${ j_randomStrings.get(i) }"
                     }
