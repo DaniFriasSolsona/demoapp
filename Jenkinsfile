@@ -125,7 +125,7 @@ pipeline{
                     def jsonObj = new JsonSlurper()
                     def json = jsonObj.parseText(jsonString)
 
-                    def id = json.id
+                    def id = String.valueOf(json.id)
                     def name = json.name
                     def url = json.html_url
                     def visibility = json.visibility
