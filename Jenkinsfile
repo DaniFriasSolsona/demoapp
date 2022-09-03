@@ -132,7 +132,7 @@ pipeline{
                     def description = String.valueOf(json.description)
                     def forks = String.valueOf(json.forks)
                     Repositorio repo = new Repositorio(id, name, url, visibility, description, forks)
-                    repo.print()
+                    echo "${ repo.print() }"
                 }
             }
         }
@@ -178,7 +178,6 @@ class Repositorio{
         out += "URL: " + this.url + "\n"
         out += "Visibilidad:" + this.visibility + "\n"
         out+= "Cantidad de forks: " + this.forks + "\n"
-        echo "${ out }"
         return out;
     }
 }
