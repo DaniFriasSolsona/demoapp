@@ -1,5 +1,4 @@
 import groovy.json.JsonSlurper
-import groovy.json.JsonOutput
 
 pipeline{
     agent any
@@ -123,15 +122,17 @@ pipeline{
                     //Llamada a la API
                     def jsonString = callAPI("GET", "https://api.github.com/repos/MartiMarch/formacion-jenkins-groovy", "")
                     //Transforamcion del json a un mapa
-                    def jsonObj = readJSON text: jsonString
+                    def jsonObj = new JsonSlurper()
+                    def json = jsonObj.parseText(jsonString)
 
-                    def id = jsonObj.id
-                    def name = jsonObj.name
-                    def url = jsonObj.html_url
-                    def visibility = jsonObj.visibility
-                    def description = String.valueOf(jsonObj.description)
-                    def forks = jsonObj.forks
-                    Repositorio repo = new Repositorio(jsonObj.id, jsonObj.name, jsonObj.html_url, )
+                    def id = json.id
+                    def name = json.name
+                    def url = json.html_url
+                    def visibility = json.visibility
+                    def description = String.valueOf(json.description)
+                    def forks = json.forks
+                    Repositorio repo = new Repositorio(json.id, json.name, json.html_url, )
+                    repo.print()
                 }
             }
         }
@@ -179,5 +180,4 @@ class Repositorio{
         out+= "Cantidad de forks: " + this.forks + "\n"
         return out;
     }
-
 }
