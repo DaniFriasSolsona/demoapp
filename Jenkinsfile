@@ -90,5 +90,12 @@ pipeline{
                 }
             }
         }
+        stage("Parametrización"){
+            steps{
+                script{
+                    echo "${ MI_CADENA }"
+                }
+            }
+        }
     }
 }
