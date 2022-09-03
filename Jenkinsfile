@@ -171,7 +171,7 @@ class Repositorio{
         out += "Nombre: " + this.name + "\n"
         out += "Id: " + this.id + "\n"
         out += "Description: " + this.description + "\n"
-        out += "URL: " + this.url + "\n")
+        out += "URL: " + this.url + "\n"
         out += "Visibilidad:" + this.visibility + "\n"
         out+= "Cantidad de forks: " + this.forks + "\n"
         return out;
