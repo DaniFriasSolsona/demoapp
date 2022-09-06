@@ -92,6 +92,19 @@ pipeline{
                 }
             }
         }
+        stage("DIR"){
+            steps{
+                script{
+                    sh "pwd"
+                    echo "${ WORKSPACE }"
+                    sh "mkdir nueva-ruta"
+                    dir("mkdir nueva-ruta")
+                    {
+                      sh "pwd"
+                    }
+                }
+            }
+        }
         stage("Parametrización"){
             steps{
                 script{
