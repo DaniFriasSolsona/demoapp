@@ -97,8 +97,8 @@ pipeline{
                 script{
                     sh "pwd"
                     echo "${ WORKSPACE }"
-                    sh "mkdir nueva-ruta13"
-                    dir("mkdir nueva-ruta13")
+                    sh "mkdir nueva-ruta23"
+                    dir("mkdir nueva-ruta23")
                     {
                       sh "pwd"
                     }
